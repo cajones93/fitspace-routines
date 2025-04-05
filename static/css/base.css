@@ -59,6 +59,11 @@ footer {
     height: 8rem;
 }
 
+.active {
+    border-bottom: 2px solid var(--dark-green);
+    font-weight: 500;
+}
+
 .transition-ease{
     transition: all 0.5s ease-in-out;
 }
@@ -83,7 +88,30 @@ img.logo {
 }
 
 .btn-outline-success:hover{
-    background-color: var(--dark-green);
+    background-color: var(--light-green);
     border-color: white;
     color: white;
+}
+
+/* Form */
+
+.form{
+    width: 100%;
+    margin: 3% auto;
+    box-shadow: var(--small-box-shadow);
+    border-radius: 5px;
+}
+
+.auth-form{
+    width: 50%;
+    margin: 0 auto;
+}
+
+a{
+    color: var(--green);
+}
+
+a:hover{
+    color: var(--light-green);
+    font-weight: 500;
 }
