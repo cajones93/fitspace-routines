@@ -59,8 +59,9 @@ footer {
     height: 8rem;
 }
 
-.active {
-    border-bottom: 2px solid var(--dark-green);
+.navbar-nav .nav-item .nav-link.active{
+    color: var(--light-green);
+    border-bottom: 2px solid var(--light-green);
     font-weight: 500;
 }
 
@@ -72,6 +73,10 @@ a.nav-link {
     color: var(--green);
     font-size: 120%;
     transition: all 0.5s ease-in-out;
+}
+
+a.nav-link:hover{
+    color: white;
 }
 
 img.logo {
@@ -89,9 +94,10 @@ img.logo {
 
 .btn-outline-success:hover{
     background-color: var(--light-green);
-    border-color: white;
-    color: white;
+    color: black;
+    font-weight: 500;
 }
+
 
 /* Form */
 
@@ -108,7 +114,9 @@ img.logo {
 }
 
 a{
-    color: var(--green);
+    color: var(--dark-blue);
+    transition: all 0.5s ease-in-out;
+    
 }
 
 a:hover{
