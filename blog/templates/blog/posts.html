@@ -16,7 +16,7 @@
                   <h2 class="card-title">{{post.title}}</h5>
                   <h3 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
                   <p class="card-text">{{post.excerpt|truncatechars:100}}</p>
-                  <h4 class="card-focus">{{post.focus}}</h5>
+                  <h4 class="card-focus">{{post.get_focus_display}}</h5>
                   <h5 class="card-created">Created on: {{post.created_on}}</h6>
                 </div>
               </div>
