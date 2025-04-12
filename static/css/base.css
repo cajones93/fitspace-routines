@@ -125,3 +125,31 @@ a:hover{
     color: var(--light-green);
     font-weight: 500;
 }
+
+/* Posts */
+
+.card {
+    height: 90%;
+    margin-top: 1rem;
+}
+
+.posts {
+    text-decoration: none;
+    color: black;
+}
+
+.posts:hover{
+    cursor: pointer;
+}
+
+.card-focus{
+    text-align: center;
+    border: var(--border);
+    border-radius: 5px;
+    background-color: var(--light-green);
+}
+
+.short {
+    width: 33%;
+    margin: 0 auto;
+}

@@ -1,9 +1,15 @@
-from django.views.generic import CreateView
-
+from django.views.generic import CreateView, ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Post
 from .forms import BlogPostForm
+
+
+class Posts(ListView):
+    """ View all posts """
+    template_name = 'blog/posts.html'
+    model = Post
+    context_object_name = 'posts'
 
 
 class AddPost(LoginRequiredMixin, CreateView, ):

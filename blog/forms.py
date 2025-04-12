@@ -7,7 +7,6 @@ class BlogPostForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'focus', 'excerpt', 'content']
-        prepopulated_fields = {'author': (self.'author')}
         
         content = forms.CharField(widget=RichTextWidget())
 
