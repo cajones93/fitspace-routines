@@ -1,6 +1,7 @@
 from django.views.generic import (
     CreateView, ListView, 
-    DetailView, DeleteView
+    DetailView, DeleteView,
+    UpdateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -41,4 +42,12 @@ class DeletePost(LoginRequiredMixin, DeleteView):
     """ Delete a post """
 
     model = Post
+    success_url = "/posts/posts/"
+
+
+class UpdatePost(LoginRequiredMixin, UpdateView):
+    """ Edit a post """
+    template_name = "blog/edit_post.html"
+    model = Post
+    form_class = BlogPostForm
     success_url = "/posts/posts/"
