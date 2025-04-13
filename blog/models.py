@@ -8,8 +8,8 @@ FOCUS = (
     ("general_fitness", "General Fitness"),
     ("strength", "Strength"),
     ("hypertrophy", "Hypertrophy"),
-    ("weight_loss", "Weight Loss")
-    )
+    ("weight_loss", "Weight Loss"),
+)
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
@@ -18,7 +18,9 @@ class Post(models.Model):
     A model to create and mange a blog post entry related to :model:`auth.User`.
     """
 
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post_author")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="post_author"
+    )
     title = models.CharField(max_length=200, null=False, blank=False)
     slug = models.SlugField(max_length=200, unique=True)
     focus = models.CharField(choices=FOCUS, default="general-fitness")
@@ -40,12 +42,9 @@ class Comment(models.Model):
     Stores a single comment entry related to :model:`blog.Post`
     and :model:`auth.User`.
     """
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name="comments"
-    )
-    author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="commenter"
-    )
+
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="commenter")
     body = models.TextField(default="")
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
