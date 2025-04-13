@@ -1,5 +1,11 @@
-from django.views.generic import CreateView, ListView, DetailView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import (
+    CreateView, ListView, 
+    DetailView, DeleteView
+)
+from django.contrib.auth.mixins import (
+    LoginRequiredMixin, UserPassesTestMixin
+)
+
 
 from .models import Post
 from .forms import BlogPostForm
@@ -27,8 +33,18 @@ class AddPost(LoginRequiredMixin, CreateView):
     template_name = "blog/add_post.html"
     model = Post
     form_class = BlogPostForm
-    success_url = "/index/"
+    success_url = "/posts/posts/"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AddPost, self).form_valid(form)
+
+
+class DeletePost(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    """ Delete a post """
+
+    model = Post
+    success_url = "/posts/posts/"
+
+    def test_func(self):
+        return self.request.user == self.get_object().user
