@@ -5,6 +5,8 @@ from django.views.generic import (
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from django.db.models import Q
+
 from .models import Post
 from .forms import BlogPostForm
 
@@ -15,6 +17,18 @@ class Posts(ListView):
     template_name = "blog/posts.html"
     model = Post
     context_object_name = "posts"
+
+    def get_queryset(self, **kwargs):
+        query = self.request.GET.get('q')
+        if query:
+            posts = self.model.objects.filter(
+                Q(title__icontains=query)|
+                Q(focus__icontains=query)|
+                Q(content__icontains=query)
+            )
+        else:
+            posts = self.model.objects.all()
+        return posts
 
 
 class PostDetail(DetailView):
