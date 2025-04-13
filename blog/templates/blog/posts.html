@@ -10,7 +10,7 @@
 <hr class="short">
 <div class="container d-flex flex-row flex-wrap justify-content-center">
     {% for post in posts %}
-        <a href="" class="posts" aria-label="Click to view {{post.title}}">
+        <a href="{% url 'post_detail' post.id %}" class="posts" aria-label="Click to view {{post.title}}">
             <div class="card m-3" style="width: 21rem;">
                 <div class="card-body">
                   <h2 class="card-title">{{post.title}}</h5>
