@@ -99,6 +99,17 @@ img.logo {
 }
 
 
+/* Index */
+
+.home-container{
+    width: 80%;
+    margin: 0 auto;
+    border: var(--border);
+    border-radius: 5px;
+    background-color: white;
+    padding: 2rem;
+}
+
 /* Form */
 
 .form{
@@ -220,4 +231,15 @@ a:hover{
 
 #id_password_helptext, #div_id_remember{
     display: none;
+}
+
+
+.see-all{
+    display: block;
+    margin: 0 auto;
+}
+
+.long{
+    width: 80%;
+    margin: 0 auto;
 }

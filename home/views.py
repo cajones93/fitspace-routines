@@ -1,4 +1,11 @@
-from django.views.generic import TemplateView
+from django.views.generic import ListView
+from blog.models import Post
 
-class Index(TemplateView):
+
+class Index(ListView):
     template_name = 'home/index.html'
+    model = Post
+    context_object_name = 'posts'
+
+    def get_queryset(self):
+        return self.model.objects.all()[:3]
