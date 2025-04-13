@@ -217,3 +217,7 @@ a:hover{
         padding: 5%;
     }
 }
+
+#id_password_helptext, #div_id_remember{
+    display: none;
+}

@@ -14,7 +14,7 @@
             {% if user.is_authenticated and post.author == user %}
                 <div class="text-center">
                     <a href="" class="btn btn-primary w-25 mb-2">Edit</a>
-                    <a href="" class="btn btn-warning w-25 mb-2">Delete</a>
+                    <a href="{% url 'delete_post' post.id %}" class="btn btn-warning w-25 mb-2">Delete</a>
                 </div>
             {% endif %} 
         </div>
