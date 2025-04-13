@@ -9,18 +9,18 @@
             <h1 class="text-center">{{post.title}}</h1>
             <p class="text-center">Posted by {{post.author}} on {{post.created_on}}</p>
             <hr>
-            <p><strong>Workout Focus: </strong>{{post.get_focus_display}}</p>
+            <p class="workout-focus text-center"><strong>Workout Focus: </strong>{{post.get_focus_display}}</p>
 
-            {% if request.author == post.author %}
+            {% if user.is_authenticated and post.author == user %}
                 <div class="text-center">
-                    <a href="" class="btn btn-primary w-25">Edit</a>
-                    <a href="" class="btn btn-primary w-25">Delete</a>
+                    <a href="" class="btn btn-primary w-25 mb-2">Edit</a>
+                    <a href="" class="btn btn-warning w-25 mb-2">Delete</a>
                 </div>
-            {% endif %}
+            {% endif %} 
         </div>
     </div>
-    <div class="post-container">
-        <div class="content">
+    <div class="post-container text-center">
+        <div class="post-content">
             <h2>Workout Details</h2>
             <p>{{post.content|safe}}</p>
         </div>

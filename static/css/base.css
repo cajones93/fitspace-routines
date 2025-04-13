@@ -129,7 +129,7 @@ a:hover{
 /* Posts */
 
 .card {
-    height: 90%;
+    height: 95%;
     margin-top: 1rem;
 }
 
@@ -152,4 +152,68 @@ a:hover{
 .short {
     width: 33%;
     margin: 0 auto;
+}
+
+/* Post Detail */
+
+.post-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: white;
+    border: var(--border);
+}
+
+.post-container{
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--small-box-shadow);
+    border: var(--border);
+}
+
+.post-content{
+    width: 100%;
+    background-color: white;
+}
+
+.workout-focus{
+    background-color: var(--light-green);
+    height: 2rem;
+    line-height: 2rem;
+    font-size: 130%;
+    border-radius: 5px;
+}
+
+.btn{
+    transition: ease-in-out 0.5s;
+}
+
+.btn-warning{
+    background-color: red;
+    border-color: red;
+    color: white;
+}
+
+.btn-warning:hover{
+    background-color: darkred;
+    border-color:darkred;
+    color:white;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 62.5em){
+    .post-info{
+        flex-direction: row;
+        border-radius: 5px;
+    }
+    
+    .post-container{
+        flex-direction: row;
+    }
+
+    .post-content{
+        width: 70%;
+        margin: 0 auto;
+        padding: 5%;
+    }
 }
