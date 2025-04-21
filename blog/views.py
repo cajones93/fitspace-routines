@@ -1,11 +1,11 @@
 from django.views.generic import (
-    CreateView, ListView, 
+    CreateView, ListView,
     DetailView, DeleteView,
     UpdateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 from django.db.models import Q
+from django.utils.text import slugify
 
 from .models import Post
 from .forms import BlogPostForm
@@ -49,7 +49,17 @@ class AddPost(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        return super(AddPost, self).form_valid(form)
+        title = form.cleaned_data['title'] 
+        slug = slugify(title)
+
+        # Check if the slug already exists and add a number to make sure it is unique
+        original_slug = slug
+        counter = 1
+        while Post.objects.filter(slug=slug).exists():
+            slug = f"{original_slug}-{counter}"
+            counter += 1
+        form.instance.slug = slug
+        return super().form_valid(form)
 
 
 class DeletePost(LoginRequiredMixin, DeleteView):
