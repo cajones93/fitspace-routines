@@ -17,18 +17,23 @@ class Posts(ListView):
     template_name = "blog/posts.html"
     model = Post
     context_object_name = "posts"
+    paginate_by = 6  # You might want to add pagination
 
     def get_queryset(self, **kwargs):
+        queryset = super().get_queryset().order_by('-created_on')
         query = self.request.GET.get('q')
+        focus_filter = self.request.GET.get('focus')
+
+        if focus_filter and focus_filter != 'All':
+            queryset = queryset.filter(focus=focus_filter)
+
         if query:
-            posts = self.model.objects.filter(
-                Q(title__icontains=query)|
-                Q(focus__icontains=query)|
+            queryset = queryset.filter(
+                Q(title__icontains=query) |
+                Q(focus__icontains=query) |
                 Q(content__icontains=query)
             )
-        else:
-            posts = self.model.objects.all()
-        return posts
+        return queryset
 
 
 class PostDetail(DetailView):
@@ -75,3 +80,4 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     model = Post
     form_class = BlogPostForm
     success_url = "/posts/posts/"
+

@@ -1,25 +1,33 @@
 {% extends "base.html" %}
 
-
 {% block title %}Posts{% endblock %}
 
 {% block content %}
 <h1 class="text-center p2 mt-2">
     Latest Posts
 </h1>
+<div class="mb-3 text-center">
+    <form method="get" action="{% url 'posts' %}" class="d-inline-flex gap-2">
+        <button type="submit" class="btn btn-outline-primary" name="focus" value="All">All</button>
+        <button type="submit" class="btn btn-outline-primary" name="focus" value="general_fitness">General Fitness</button>
+        <button type="submit" class="btn btn-outline-primary" name="focus" value="strength">Strength</button>
+        <button type="submit" class="btn btn-outline-primary" name="focus" value="hypertrophy">Hypertrophy</button>
+        <button type="submit" class="btn btn-outline-primary" name="focus" value="weight_loss">Weight Loss</button>
+    </form>
+</div>
 <hr class="short">
 <div class="container d-flex flex-row flex-wrap justify-content-center">
     {% for post in posts %}
         <a href="{% url 'post_detail' post.slug %}" class="posts" aria-label="Click to view {{post.title}}">
             <div class="card m-3" style="width: 21rem;">
                 <div class="card-body">
-                  <h2 class="card-title">{{post.title}}</h5>
-                  <h3 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
-                  <p class="card-text">{{post.excerpt|truncatechars:100}}</p>
-                  <h4 class="card-focus">{{post.get_focus_display}}</h5>
-                  <h5 class="card-created">Created on: {{post.created_on}}</h6>
+                    <h2 class="card-title">{{post.title}}</h5>
+                    <h3 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
+                    <p class="card-text">{{post.excerpt|truncatechars:100}}</p>
+                    <h4 class="card-focus">{{post.get_focus_display}}</h5>
+                    <h5 class="card-created">Created on: {{post.created_on}}</h6>
                 </div>
-              </div>
+            </div>
         </a>
     {% endfor %}
 </div>
