@@ -21,7 +21,7 @@
         </h1>
         <a href="{% url 'posts' %}" class="btn btn-outline-success w-25 mb-2 see-all">See All Posts</a>
         <hr class="long">
-        <div class="container d-flex flex-row flex-wrap justify-content-center">
+        <div class="container d-flex flex-row flex-wrap justify-content-center mb-3">
             {% for post in posts %}
                 <a href="{% url 'post_detail' post.slug %}" class="posts" aria-label="Click to view {{post.title}}">
                     <div class="card m-3" style="width: 21rem;">
