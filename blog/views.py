@@ -4,11 +4,12 @@ from django.views.generic import (
     UpdateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 from django.db.models import Q
 from django.utils.text import slugify
 
-from .models import Post
-from .forms import BlogPostForm
+from .models import Post, Comment
+from .forms import BlogPostForm, CommentForm
 
 
 class Posts(ListView):
@@ -37,11 +38,35 @@ class Posts(ListView):
 
 
 class PostDetail(DetailView):
-    """View a single post"""
-
+    """View a single post and its comments"""
     template_name = "blog/post_detail.html"
     model = Post
     context_object_name = "post"
+
+    def get_context_data(self, **kwargs):
+        comment_form = super().get_context_data(**kwargs)
+        post = self.get_object()
+        comments = post.comments.filter(approved=True).order_by('created_on')
+        comment_form['comments'] = comments
+        comment_form['comment_form'] = CommentForm()
+
+        if self.request.method == 'POST':
+            comment_form = CommentForm(data=self.request.POST)
+            if comment_form.is_valid():
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.author = self.request.user
+                comment.save()
+                messages.add_message(
+                    messages.SUCCESS,
+                    'Comment submitted and awaiting approval'
+                )
+                comment_form['comments'] = post.comments.filter(approved=True).order_by('created_on')
+                comment_form['comment_form'] = CommentForm() 
+            else:
+                comment_form['comment_form'] = comment_form
+
+        return comment_form
 
 
 class AddPost(LoginRequiredMixin, CreateView):
@@ -81,3 +106,13 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     form_class = BlogPostForm
     success_url = "/posts/posts/"
 
+
+class CreateComment(LoginRequiredMixin, CreateView):
+    model = Comment
+    form_class = CommentForm
+    fields = ['body',]
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        form.instance.post_id = self.kwargs['pk']
+        return super().form_valid(form)
