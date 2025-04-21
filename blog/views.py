@@ -89,6 +89,8 @@ class AddPost(LoginRequiredMixin, CreateView):
             slug = f"{original_slug}-{counter}"
             counter += 1
         form.instance.slug = slug
+        messages.add_message(messages.SUCCESS, 'Post Added Successfully!')
+
         return super().form_valid(form)
 
 
@@ -97,6 +99,7 @@ class DeletePost(LoginRequiredMixin, DeleteView):
 
     model = Post
     success_url = "/posts/posts/"
+    messages.add_message(messages.SUCCESS, 'Post Deleted Successfully!')
 
 
 class UpdatePost(LoginRequiredMixin, UpdateView):
@@ -105,6 +108,7 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     model = Post
     form_class = BlogPostForm
     success_url = "/posts/posts/"
+    messages.add_message(messages.SUCCESS, 'Post Updated Successfully!')
 
 
 class CreateComment(LoginRequiredMixin, CreateView):
