@@ -3,10 +3,10 @@
 {% block title %}Posts{% endblock %}
 
 {% block content %}
-<h1 class="text-center p2 mt-2">
-    Latest Posts
-</h1>
-<div class="mb-3 text-center">
+<div class="top-post-container mb-3 text-center">
+    <h1 class="text-center p2 mt-2">
+        Latest Posts
+    </h1>
     <form method="get" action="{% url 'posts' %}" class="d-inline-flex gap-2">
         <button type="submit" class="btn btn-outline-primary" name="focus" value="All">All</button>
         <button type="submit" class="btn btn-outline-primary" name="focus" value="general_fitness">General Fitness</button>

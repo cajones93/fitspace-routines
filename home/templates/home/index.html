@@ -7,17 +7,15 @@
     <section class="home-container text-center">
         <h1 class="main-title mx-auto">Find your perfect workout routine</h1>
         <p>The ultimate place to find your perfect workout routine.</p>
+        <form method="get" action="{% url 'home' %}" class="d-inline-flex gap-2">
+            <button type="submit" class="btn btn-outline-primary" name="focus" value="All">All</button>
+            <button type="submit" class="btn btn-outline-primary" name="focus" value="general_fitness">General Fitness</button>
+            <button type="submit" class="btn btn-outline-primary" name="focus" value="strength">Strength</button>
+            <button type="submit" class="btn btn-outline-primary" name="focus" value="hypertrophy">Hypertrophy</button>
+            <button type="submit" class="btn btn-outline-primary" name="focus" value="weight_loss">Weight Loss</button>
+        </form>
     </section>
     <section>
-        <div class="mb-3 text-center">
-            <form method="get" action="{% url 'home' %}" class="d-inline-flex gap-2">
-                <button type="submit" class="btn btn-outline-primary" name="focus" value="All">All</button>
-                <button type="submit" class="btn btn-outline-primary" name="focus" value="general_fitness">General Fitness</button>
-                <button type="submit" class="btn btn-outline-primary" name="focus" value="strength">Strength</button>
-                <button type="submit" class="btn btn-outline-primary" name="focus" value="hypertrophy">Hypertrophy</button>
-                <button type="submit" class="btn btn-outline-primary" name="focus" value="weight_loss">Weight Loss</button>
-            </form>
-        </div>
         <h1 class="text-center p2 mt-2">
             Latest Posts
         </h1>
