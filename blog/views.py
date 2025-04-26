@@ -4,7 +4,7 @@ from django.views.generic import (
     UpdateView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib import messages
+from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
 from django.utils.text import slugify
 
@@ -37,7 +37,7 @@ class Posts(ListView):
         return queryset
 
 
-class PostDetail(DetailView):
+class PostDetail(SuccessMessageMixin, DetailView):
     """View a single post and its comments"""
     template_name = "blog/post_detail.html"
     model = Post
@@ -57,10 +57,6 @@ class PostDetail(DetailView):
                 comment.post = post
                 comment.author = self.request.user
                 comment.save()
-                messages.add_message(
-                    messages.SUCCESS,
-                    'Comment submitted and awaiting approval'
-                )
                 comment_form['comments'] = post.comments.filter(approved=True).order_by('created_on')
                 comment_form['comment_form'] = CommentForm() 
             else:
@@ -89,7 +85,6 @@ class AddPost(LoginRequiredMixin, CreateView):
             slug = f"{original_slug}-{counter}"
             counter += 1
         form.instance.slug = slug
-        messages.add_message(messages.SUCCESS, 'Post Added Successfully!')
 
         return super().form_valid(form)
 
@@ -99,7 +94,6 @@ class DeletePost(LoginRequiredMixin, DeleteView):
 
     model = Post
     success_url = "/posts/posts/"
-    messages.add_message(messages.SUCCESS, 'Post Deleted Successfully!')
 
 
 class UpdatePost(LoginRequiredMixin, UpdateView):
@@ -108,7 +102,6 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     model = Post
     form_class = BlogPostForm
     success_url = "/posts/posts/"
-    messages.add_message(messages.SUCCESS, 'Post Updated Successfully!')
 
 
 class CreateComment(LoginRequiredMixin, CreateView):
