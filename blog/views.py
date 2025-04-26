@@ -3,10 +3,12 @@ from django.views.generic import (
     DetailView, DeleteView,
     UpdateView
 )
+from django.shortcuts import get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
 from django.utils.text import slugify
+from django.urls import reverse
 
 from .models import Post, Comment
 from .forms import BlogPostForm, CommentForm
@@ -58,7 +60,7 @@ class PostDetail(SuccessMessageMixin, DetailView):
                 comment.author = self.request.user
                 comment.save()
                 comment_form['comments'] = post.comments.filter(approved=True).order_by('created_on')
-                comment_form['comment_form'] = CommentForm() 
+                comment_form['comment_form'] = CommentForm()
             else:
                 comment_form['comment_form'] = comment_form
 
@@ -107,9 +109,11 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
 class CreateComment(LoginRequiredMixin, CreateView):
     model = Comment
     form_class = CommentForm
-    fields = ['body',]
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        form.instance.post_id = self.kwargs['pk']
+        form.instance.post = get_object_or_404(Post, slug=self.kwargs['slug'])
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('post_detail', kwargs={'slug': self.object.post.slug})
