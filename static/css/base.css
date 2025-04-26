@@ -31,6 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
+    background-color: var(--secondary)
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -68,12 +69,20 @@ footer {
     background-color: var(--secondary);
     box-shadow: var(--small-box-shadow);
     height: 8rem;
+    position: sticky;
+    z-index: 3;
 }
 
 .navbar-nav .nav-item .nav-link.active{
     color: var(--primary-light);
     border-bottom: 2px solid var(--primary-light);
     font-weight: 500;
+}
+
+.navbar-collapse{
+    background-color: var(--secondary);
+    width: 100%;
+    padding: 5px;
 }
 
 .transition-ease{
@@ -121,7 +130,12 @@ img.logo {
     border: var(--border);
     border-radius: 5px;
     background-color: white;
-    padding: 2rem;
+    padding: var(--space-md);
+}
+
+.search-filters{
+    display: inline-flex;
+    flex-wrap: wrap;
 }
 
 /* Form */
@@ -161,7 +175,7 @@ a:hover{
     border: var(--border);
     box-shadow: var(--small-box-shadow);
     border-radius: 5px;
-
+    max-width: 100%;
 }
 
 .card {
@@ -247,6 +261,26 @@ a:hover{
     font-weight: 500;
 }
 
+
+
+#id_password_helptext, #div_id_remember{
+    display: none;
+}
+
+
+.see-all{
+    display: block;
+    margin: 0 auto;
+}
+
+.long{
+    width: 80%;
+    margin: 0 auto;
+}
+
+
+/* Media Queries */
+
 @media screen and (min-width: 62.5em){
     .post-info{
         flex-direction: row;
@@ -267,19 +301,8 @@ a:hover{
         padding:20px;
         line-height: 0;
     }
-}
 
-#id_password_helptext, #div_id_remember{
-    display: none;
-}
-
-
-.see-all{
-    display: block;
-    margin: 0 auto;
-}
-
-.long{
-    width: 80%;
-    margin: 0 auto;
+    .search-filters{
+        display: inline-flex;
+    }
 }
