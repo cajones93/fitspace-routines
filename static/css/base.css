@@ -6,15 +6,21 @@
     --main-font: 'Montserrat', 'serif';
 
     /* Colours */
-    --background: #3E688C;
-    --dark-blue: #010440;
-    --green: #C5D932;
-    --light-green: #D3D936;
-    --dark-green: #575916;
+    --secondary: #3E688C;
+    --text-dark: #010440;
+    --primary: #C5D932;
+    --primary-light: #D3D936;
+    --primary-dark: #575916;
 
     /* Utils */
     --small-box-shadow: 1px -1px 7px 0 #00000061;
     --border: 1px solid #00000030;
+
+    /* Space sizes */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 2rem;
+    --space-lg: 3rem;  
 }
 
 html, body {
@@ -29,11 +35,12 @@ body {
 
 h1, h2, h3, h4, h5, h6{
     font-family: var(--title);
+    color: var(--text-dark);
 }
 
 main{
     flex: 1 0 auto;
-    background-color: var(--background);
+    background-color: var(--secondary);
 }
 
 .faded {
@@ -43,7 +50,7 @@ main{
 /* Footer */
 footer {
     flex-shrink: 0;
-    background-color: var(--background);
+    background-color: var(--secondary);
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -58,14 +65,14 @@ footer {
 
 /* Header */
 .navbar {
-    background-color: var(--background);
+    background-color: var(--secondary);
     box-shadow: var(--small-box-shadow);
     height: 8rem;
 }
 
 .navbar-nav .nav-item .nav-link.active{
-    color: var(--light-green);
-    border-bottom: 2px solid var(--light-green);
+    color: var(--primary-light);
+    border-bottom: 2px solid var(--primary-light);
     font-weight: 500;
 }
 
@@ -73,10 +80,10 @@ footer {
     transition: all 0.5s ease-in-out;
 }
 
-a.nav-link {
-    color: var(--green);
-    font-size: 120%;
-    transition: all 0.5s ease-in-out;
+.nav-link {
+    color: var(--primary);
+    font-size: 1.2rem;
+    transition: color 0.3s ease-in-out;
 }
 
 a.nav-link:hover{
@@ -89,16 +96,19 @@ img.logo {
     object-fit: contain;
 }
 
-.btn-outline-success{
+.btn-primary{
     color: black;
-    font-size: 120%;
-    background-color: var(--green);
+    font-size: 1.2rem;
+    background-color: var(--primary);
+    border: none;
+    padding: var(--space-xs) var(--space-sm);
+    transition: all 0.3s ease-in-out;
 
 }
 
-.btn-outline-success:hover{
-    background-color: var(--light-green);
-    color: black;
+.btn-primary:hover{
+    background-color: var(--text-dark);
+    color: white;
     font-weight: 500;
 }
 
@@ -118,10 +128,10 @@ img.logo {
 
 .form{
     width: 100%;
-    margin: 3% auto;
+    margin: var(--space-md) auto;
     box-shadow: var(--small-box-shadow);
     border-radius: 5px;
-    padding: 15px;
+    padding: var(--space-md);
     background-color: white;
 }
 
@@ -131,13 +141,13 @@ img.logo {
 }
 
 a{
-    color: var(--dark-blue);
-    transition: all 0.5s ease-in-out;
+    color: var(--text-dark);
+    transition: color 0.3s ease-in-out;
     
 }
 
 a:hover{
-    color: var(--light-green);
+    color: var(--primary-light);
     font-weight: 500;
 }
 
@@ -145,9 +155,8 @@ a:hover{
 
 .top-post-container{
     background-color: white;
-    padding: 10px;
+    padding: var(--space-md);
     margin: 0 auto;
-    margin-top: 0.5rem;
     width: 60%;
     border: var(--border);
     box-shadow: var(--small-box-shadow);
@@ -157,13 +166,17 @@ a:hover{
 
 .card {
     height: 95%;
-    margin-top: 1rem;
+    margin-top: var(--space-sm);
+    border: var(--border);
+}
+
+.card-body{
+    height: 100%;
 }
 
 .card-footer{
     flex: 1 1 auto;
     padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
-    color: var(--bs-card-color);
 }
 
 .posts {
@@ -179,7 +192,7 @@ a:hover{
     text-align: center;
     border: var(--border);
     border-radius: 5px;
-    background-color: var(--light-green);
+    background-color: var(--primary-light);
 }
 
 .short {
@@ -210,7 +223,7 @@ a:hover{
 }
 
 .workout-focus{
-    background-color: var(--light-green);
+    background-color: var(--primary-light);
     height: 2rem;
     line-height: 2rem;
     font-size: 130%;
@@ -233,8 +246,6 @@ a:hover{
     color:white;
     font-weight: 500;
 }
-
-
 
 @media screen and (min-width: 62.5em){
     .post-info{

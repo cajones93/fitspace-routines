@@ -7,7 +7,12 @@
     <section class="home-container text-center">
         <h1 class="main-title mx-auto">Find your perfect workout routine</h1>
         <p>The ultimate place to find your perfect workout routine.</p>
-        <form method="get" action="{% url 'home' %}" class="d-inline-flex gap-2">
+        <hr>
+        <h1 class="text-center p2 mt-2">
+            Latest Posts
+        </h1>
+        <hr class="short"></hr>
+        <form method="get" action="{% url 'home' %}" class="d-inline-flex gap-2 mt-3">
             <button type="submit" class="btn btn-outline-primary" name="focus" value="All">All</button>
             <button type="submit" class="btn btn-outline-primary" name="focus" value="general_fitness">General Fitness</button>
             <button type="submit" class="btn btn-outline-primary" name="focus" value="strength">Strength</button>
@@ -16,10 +21,6 @@
         </form>
     </section>
     <section>
-        <h1 class="text-center p2 mt-2">
-            Latest Posts
-        </h1>
-        <a href="{% url 'posts' %}" class="btn btn-outline-success w-25 mb-2 see-all">See All Posts</a>
         <hr class="long">
         <div class="container d-flex flex-row flex-wrap justify-content-center mb-3">
             {% for post in posts %}
@@ -39,6 +40,7 @@
                 </a>
             {% endfor %}
         </div>
+        <a href="{% url 'posts' %}" class="btn btn-primary w-25 mb-2 see-all">See All Posts</a>
     </section>
 </div>
 {% endblock %}
