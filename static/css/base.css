@@ -36,6 +36,10 @@ main{
     background-color: var(--background);
 }
 
+.faded {
+    color: rgb(172, 175, 175);
+}
+
 /* Footer */
 footer {
     flex-shrink: 0;
