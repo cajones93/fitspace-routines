@@ -52,18 +52,6 @@ class PostDetail(SuccessMessageMixin, DetailView):
         comment_form['comments'] = comments
         comment_form['comment_form'] = CommentForm()
 
-        # if self.request.method == 'POST':
-        #     comment_form = CommentForm(data=self.request.POST)
-        #     if comment_form.is_valid():
-        #         comment = comment_form.save(commit=False)
-        #         comment.post = post
-        #         comment.author = self.request.user
-        #         comment.save()
-        #         comment_form['comments'] = post.comments.all().order_by('created_on')
-        #         comment_form['comment_form'] = CommentForm()
-        #     else:
-        #         comment_form['comment_form'] = comment_form
-
         return comment_form
 
 

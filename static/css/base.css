@@ -251,6 +251,11 @@ a:hover{
         margin: 0 auto;
         padding: 5%;
     }
+
+    .workout-focus{
+        padding:20px;
+        line-height: 0;
+    }
 }
 
 #id_password_helptext, #div_id_remember{
