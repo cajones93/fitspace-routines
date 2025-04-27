@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-from djrichtextfield.models import RichTextField
-
 
 FOCUS = (
     ("general_fitness", "General Fitness"),
@@ -25,7 +23,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     focus = models.CharField(choices=FOCUS, default="general-fitness")
     excerpt = models.CharField(max_length=500, null=False, blank=False)
-    content = RichTextField(max_length=10000, null=False, blank=False)
+    content = models.TextField(max_length=10000, null=False, blank=False)
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     updated_on = models.DateTimeField(auto_now=True)

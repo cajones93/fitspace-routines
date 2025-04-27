@@ -1,5 +1,5 @@
 from django import forms
-from djrichtextfield.widgets import RichTextWidget
+from django_summernote.widgets import SummernoteWidget
 from .models import Post, Comment
 
 
@@ -10,7 +10,9 @@ class BlogPostForm(forms.ModelForm):
         model = Post
         fields = ["title", "focus", "excerpt", "content"]
 
-        content = forms.CharField(widget=RichTextWidget())
+        widgets = {
+            'content': SummernoteWidget(),
+        }
 
         labels = {
             "title": "Program Name",
