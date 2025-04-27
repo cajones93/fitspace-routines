@@ -95,6 +95,7 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
 
 
 class CreateComment(LoginRequiredMixin, CreateView):
+    """ Create a new comment """
     model = Comment
     form_class = CommentForm
 
@@ -104,4 +105,27 @@ class CreateComment(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
     def get_success_url(self):
+        return reverse('post_detail', kwargs={'slug': self.object.post.slug})
+
+
+class EditComment(LoginRequiredMixin, UpdateView):
+    """Edit a comment"""
+    model = Comment
+    form_class = CommentForm
+    template_name = 'blog/edit_comment.html'
+    pk_url_kwarg = 'comment_id'
+
+    def get_success_url(self):
+        """Redirect to the post detail page after successful edit."""
+        return reverse('post_detail', kwargs={'slug': self.object.post.slug})
+
+
+class DeleteComment(LoginRequiredMixin, DeleteView):
+    """Delete a comment"""
+    model = Comment
+    template_name = 'blog/delete_comment.html'
+    pk_url_kwarg = 'comment_id'
+
+    def get_success_url(self):
+        """Redirect to the post detail page after successful deletion."""
         return reverse('post_detail', kwargs={'slug': self.object.post.slug})

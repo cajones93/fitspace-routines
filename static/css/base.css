@@ -65,6 +65,12 @@ footer {
 }
 
 /* Header */
+
+.logged-in-user{
+    color: white;
+    padding-right: var(--space-sm);
+}
+
 .navbar {
     background-color: var(--secondary);
     box-shadow: var(--small-box-shadow);

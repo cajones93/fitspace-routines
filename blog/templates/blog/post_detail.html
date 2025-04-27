@@ -51,10 +51,8 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
-          <button class="btn btn-warning w-15 mb-1"
-          data-comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-primary w-15 mb-1"
-            data-comment_id="{{ comment.id }}">Edit</button>
+          <a href="{% url 'edit_comment' comment.id %}" class="btn btn-primary w-15 mb-1">Edit</a>
+          <a href="{% url 'delete_comment' comment.id %}" class="btn btn-warning w-15 mb-1">Delete</a>
           {% endif %}
         </div>
         <!-- Our for loop ends here -->
