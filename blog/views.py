@@ -115,6 +115,10 @@ class EditComment(LoginRequiredMixin, UpdateView):
     template_name = 'blog/edit_comment.html'
     pk_url_kwarg = 'comment_id'
 
+    def form_valid(self, form):
+        form.instance.approved = False
+        return super().form_valid(form)
+
     def get_success_url(self):
         """Redirect to the post detail page after successful edit."""
         return reverse('post_detail', kwargs={'slug': self.object.post.slug})
