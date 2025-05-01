@@ -1,1 +1,1 @@
-web: gunicorn fitspace-routines.wsgi
+web: gunicorn main.wsgi
