@@ -10,7 +10,6 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
 from django.utils.text import slugify
 from django.urls import reverse
-from allauth.account.adapter import get_adapter
 
 from .models import Post, Comment
 from .forms import BlogPostForm, CommentForm
@@ -67,7 +66,7 @@ class AddPost(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        title = form.cleaned_data['title'] 
+        title = form.cleaned_data['title']
         slug = slugify(title)
 
         # Check if the slug already exists and add a number to make sure it is unique
@@ -138,7 +137,7 @@ class EditComment(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         """Redirect to the post detail page after successful edit."""
         return reverse('post_detail', kwargs={'slug': self.object.post.slug})
-        
+
 
 class DeleteComment(LoginRequiredMixin, DeleteView):
     """Delete a comment"""

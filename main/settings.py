@@ -91,11 +91,9 @@ SUMMERNOTE_CONFIG = {
             ['table', ['table']],
             ['view', ['fullscreen', 'help']],
         ],
-    
 
-    # You can completely disable the attachment feature.
-    'disable_attachment': True,
-}
+        'disable_attachment': True,
+    }
 }
 
 MIDDLEWARE = [

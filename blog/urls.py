@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import (
-    AddPost, Posts, 
+    AddPost, Posts,
     PostDetail, DeletePost,
     UpdatePost, CreateComment,
     EditComment, DeleteComment

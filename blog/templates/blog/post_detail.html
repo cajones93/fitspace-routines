@@ -30,11 +30,10 @@
     <div class="col-md-8 card mb-4  mt-3 ">
       <h3>Comments:</h3>
       <div class="card-body">
-        <!-- We want a for loop inside the empty control tags
-          to iterate through each comment in comments -->
         {% for comment in comments %}
+        <!-- fade unapproved comments  -->
         <div class="p-2 comments
-          {% if not comment.approved and comment.author == user %}
+          {% if not comment.approved and comment.author == user %}  
           faded{% elif not comment.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
             {{ comment.author }}
@@ -51,11 +50,11 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and comment.author == user %}
+          <!-- author can edit and delete own comments -->
           <a href="{% url 'edit_comment' comment.id %}" class="btn btn-primary w-15 mb-1">Edit</a>
           <a href="{% url 'delete_comment' comment.id %}" class="btn btn-warning w-15 mb-1">Delete</a>
           {% endif %}
         </div>
-        <!-- Our for loop ends here -->
         {% endfor %}
       </div>
     </div>
