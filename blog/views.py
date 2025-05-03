@@ -4,11 +4,13 @@ from django.views.generic import (
     UpdateView
 )
 from django.shortcuts import get_object_or_404
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.db.models import Q
 from django.utils.text import slugify
 from django.urls import reverse
+from allauth.account.adapter import get_adapter
 
 from .models import Post, Comment
 from .forms import BlogPostForm, CommentForm
@@ -61,11 +63,10 @@ class AddPost(LoginRequiredMixin, CreateView):
     template_name = "blog/add_post.html"
     model = Post
     form_class = BlogPostForm
-    success_url = "/posts/posts/"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        title = form.cleaned_data['title'] 
+        title = form.cleaned_data['title']
         slug = slugify(title)
 
         # Check if the slug already exists and add a number to make sure it is unique
@@ -75,15 +76,24 @@ class AddPost(LoginRequiredMixin, CreateView):
             slug = f"{original_slug}-{counter}"
             counter += 1
         form.instance.slug = slug
-
         return super().form_valid(form)
+
+    def get_success_url(self):
+        messages.success(self.request, 'Post created successfully!')
+        return reverse('posts')
 
 
 class DeletePost(LoginRequiredMixin, DeleteView):
     """ Delete a post """
-
     model = Post
-    success_url = "/posts/posts/"
+    template_name = 'blog/post_confirm_delete.html'
+
+    def delete(self, request, *args, **kwargs):
+        return super().delete(request, *args, **kwargs)
+
+    def get_success_url(self):
+        messages.success(self.request, 'Post deleted successfully.')
+        return reverse('posts')
 
 
 class UpdatePost(LoginRequiredMixin, UpdateView):
@@ -91,7 +101,13 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
     template_name = "blog/edit_post.html"
     model = Post
     form_class = BlogPostForm
-    success_url = "/posts/posts/"
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Post updated successfully.')
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('post_detail', kwargs={'slug': self.object.slug})
 
 
 class CreateComment(LoginRequiredMixin, CreateView):
@@ -102,6 +118,7 @@ class CreateComment(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         form.instance.post = get_object_or_404(Post, slug=self.kwargs['slug'])
+        messages.success(self.request, 'Comment posted successfully and awaiting approval.')
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -117,12 +134,13 @@ class EditComment(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.approved = False
+        messages.success(self.request, 'Comment updated successfully and awaiting approval.')
         return super().form_valid(form)
 
     def get_success_url(self):
         """Redirect to the post detail page after successful edit."""
         return reverse('post_detail', kwargs={'slug': self.object.post.slug})
-
+        
 
 class DeleteComment(LoginRequiredMixin, DeleteView):
     """Delete a comment"""
@@ -132,4 +150,5 @@ class DeleteComment(LoginRequiredMixin, DeleteView):
 
     def get_success_url(self):
         """Redirect to the post detail page after successful deletion."""
+        messages.success(self.request, 'Comment deleted successfully.')
         return reverse('post_detail', kwargs={'slug': self.object.post.slug})

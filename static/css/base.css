@@ -127,6 +127,13 @@ img.logo {
     font-weight: 500;
 }
 
+.alert{
+    background-color:white;
+    color: var(--text-dark);
+    border-color:var(--primary-light);
+    border-width: 5px;
+}
+
 
 /* Index */
 
