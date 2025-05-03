@@ -63,10 +63,11 @@ class AddPost(LoginRequiredMixin, CreateView):
     template_name = "blog/add_post.html"
     model = Post
     form_class = BlogPostForm
+    success_url = "/posts/posts/"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
-        title = form.cleaned_data['title']
+        title = form.cleaned_data['title'] 
         slug = slugify(title)
 
         # Check if the slug already exists and add a number to make sure it is unique
@@ -76,11 +77,8 @@ class AddPost(LoginRequiredMixin, CreateView):
             slug = f"{original_slug}-{counter}"
             counter += 1
         form.instance.slug = slug
-        return super().form_valid(form)
-
-    def get_success_url(self):
         messages.success(self.request, 'Post created successfully!')
-        return reverse('posts')
+        return super().form_valid(form)
 
 
 class DeletePost(LoginRequiredMixin, DeleteView):
