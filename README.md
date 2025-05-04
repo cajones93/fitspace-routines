@@ -193,7 +193,7 @@ User Stories and Acceptance Criteria helped me to ensure each feature met the de
 
 ## Testing
 
-ADD LATER   
+For all testing, please refer to the [TESTING.md](TESTING.md) file. 
 
 
 ## Deployment & Local Deployment

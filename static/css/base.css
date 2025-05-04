@@ -123,7 +123,6 @@ img.logo {
     border: none;
     padding: var(--space-xs) var(--space-sm);
     transition: all 0.3s ease-in-out;
-
 }
 
 .btn-primary:hover{
@@ -282,16 +281,16 @@ a:hover{
 }
 
 .btn-warning{
-    background-color: red;
-    border-color: red;
+    background-color: #a30000;
+    border-color: #a30000;
     color: white;
     font-size: 1.2rem;
 }
 
 .btn-warning:hover{
-    background-color: darkred;
-    border-color:darkred;
-    color:white;
+    background-color: #ff6161;
+    border-color:#ff6161;
+    color:black;
     font-weight: 500;
 }
 
