@@ -134,8 +134,13 @@ img.logo {
 .alert{
     background-color:white;
     color: var(--text-dark);
-    border-color:var(--primary-light);
+    border-color:var(--primary);
     border-width: 5px;
+    text-align: center;
+}
+
+.alert-row{
+    width: 100%;
 }
 
 
