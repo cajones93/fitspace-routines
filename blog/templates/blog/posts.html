@@ -20,7 +20,7 @@
 <div class="container d-flex flex-row flex-wrap justify-content-center mb-3">
     {% for post in posts %}
         <a href="{% url 'post_detail' post.slug %}" class="posts" aria-label="Click to view {{post.title}}">
-            <div class="card m-3" style="width: 21rem;">
+            <div class="card m-3">
                 <div class="card-body">
                     <h2 class="card-title">{{post.title}}</h5>
                     <h3 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>

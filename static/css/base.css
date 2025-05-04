@@ -199,6 +199,7 @@ a:hover{
     height: 95%;
     margin-top: var(--space-sm);
     border: var(--border);
+    width: 21em;
     max-width: 100%;
 }
 
@@ -214,6 +215,7 @@ a:hover{
 .posts {
     text-decoration: none;
     color: black;
+    max-width: 100%;
 }
 
 .posts:hover{
