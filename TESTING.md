@@ -205,22 +205,24 @@ Defensive programming was manually tested with the below user acceptance testing
 
 | User Story                                                                                                                                      | Screenshot                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| As a new user, I can create an account so that I can access the cafe's community features, reviews post and comments.                           | ![screenshot](documentation/testing/user-story/signup.png)       |
-| As a member, I can sign in to the webpage so that I can access my account and enjoy customized features and contents.                           | ![screenshot](documentation/testing/user-story/signin.png)       |
-| As a cafe visitor, I can write reviews about my experiences at the cafe so that I can provide feedback and help others make informed decisions. | ![screenshot](documentation/testing/user-story/review.png)       |
-| As a site visitor, I can click on the About link so that I can read about the site.                                                             | ![screenshot](documentation/testing/user-story/about-us.png)     |
-| As a site visitor, I can click on the Community page so that I can read topics and see what the trends are on the site.                         | ![screenshot](documentation/testing/user-story/forum-member.png) |
-| As a visitor, I can use the 'Contact Us' feature to get in touch with the admin of the page so that I can ask questions or provide feedback.    | ![screenshot](documentation/testing/user-story/contactus.png)    |
-| As a community member, I can participate in forum discussions so that I can share ideas, ask questions, and engage with other cafe enthusiasts. | ![screenshot](documentation/testing/user-story/forum-form.png)   |
-| As an Admin of the page I can edit the About content so that the content stays updated with the previous information.                           | ![screenshot](documentation/testing/user-story/about-edit.png)   |
-| As an admin I can manage post on the site so that the cafes and coffee shop information stay update and accurate.                               | ![screenshot](documentation/testing/user-story/post-edit.png)    |
+| As a new user, I can sign up with a username and password so that I can create an account.                                                      | ![screenshot](documentation/testing/user-story/signup.png)       |
+| As a returning user I can log in securely so that I can access my account and see authorised features.                                          | ![screenshot](documentation/testing/user-story/signin.png)       |
+| As a logged-in user I can create a blog post so that I can share my workout routine.                                                            | ![screenshot](documentation/testing/user-story/review.png)       |
+| As a user I can choose a workout focus for my blog post so that other users can filter by workout focus and find my post.                       | ![screenshot](documentation/testing/user-story/about-us.png)     |
+| As a user I can view all blog posts so that I can stay up to date and find new workout routines.                                                | ![screenshot](documentation/testing/user-story/forum-member.png) |
+| As a user I can view individual posts so that I can read the full blog entries.                                                                 | ![screenshot](documentation/testing/user-story/contactus.png)    |
+| As the post's author I can edit and delete the post so that I can update or remove my own content.                                              | ![screenshot](documentation/testing/user-story/forum-form.png)   |
+| As a logged-in user I can comment on a post so that I can join the discussion.                                                                  | ![screenshot](documentation/testing/user-story/about-edit.png)   |
+| As a user I can see a list of approved comments under each post so that I can read other people's opinions.                                     | ![screenshot](documentation/testing/user-story/post-edit.png)    |
+| As a user I can filter posts by workout focus so that find posts that are relevant to me.                                                       | ![screenshot](documentation/testing/user-story/about-edit.png)   |
+| As a user I can search for posts by keywords so that I can find specific topics or authors.                                                     | ![screenshot](documentation/testing/user-story/post-edit.png)    |
 
 ### Solved Bugs
 
-- During testing the lighthouse This issue "Mixed Content" occured. I have searched on the internet and end up in Slack community where I found the solution. I added `STATICFILES_STORAGE =
-'cloudinary_storage.storage.StaticHashedCloudinaryS
-torage'` to the settings.py file to ensure `HTTPS` is used instead of `HTTP` and eliminate the console warnings for Cloudinary-hosted images.
+- Cards in posts.html were showing the database value for the workout focus. I found a solution on StackOverflow and changed the code to display the readable value.
 
-- During testing the functionalities on each page, I found that the contact form isn't handled incoming POST request from the contact form. To solve this, I write the POST handler in the view, and save the submitted data to the database. (Followed the steps from Challenge: Handle the form POST request- I Think Therefore I blog from CI learning platform and modified as the site needed.) Lastly, I checked the admin panel to ensure that the contact request has been saved and the confirmation pop-up displayed properly.
+- When trying to create a new post, I received the following error: IntegrityError at /posts/. I found that I had incorrectly set the author field as form.instance.user so changing this to form.instance.author to match my model fixed the issue.
 
-- One of my users report that when he clicked Edit button on his review, he must scroll down to see the existing review which makes it not so good UX. To improve this, I have created a JS functionality to make it scroll down automatically when user clicked Edit both on Reviews and comment section.
+- A user was able to edit an already approved comment that had been posted and the new comment would stay approved. To fix this, I added code to the EditComment view setting comment.approved to false when editing comment.
+
+- A scrollbar was appearing along the bottom of the screen when on lower screen sizes. I noticed that inline margin properties were set making the elements extend beyond 100%. Removing these inline styles solved the problem.
