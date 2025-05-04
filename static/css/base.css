@@ -151,6 +151,10 @@ img.logo {
     flex-wrap: wrap;
 }
 
+.container{
+    max-width: 100%;
+}
+
 /* Form */
 
 .form{
@@ -195,6 +199,7 @@ a:hover{
     height: 95%;
     margin-top: var(--space-sm);
     border: var(--border);
+    max-width: 100%;
 }
 
 .card-body{
