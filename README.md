@@ -69,4 +69,10 @@ I found an appealing colour scheme on adobe trends. I wanted something unique an
 
 I used [Shadows Into Light](https://fonts.google.com/specimen/Shadows+Into+Light) for my headers and titles and paired it with [Montserrat](https://fonts.google.com/specimen/Montserrat) for general text and readability because I wanted to go with a unique font styling and found that these two contrasted well.
 
+### Wireframes
 
+[Desktop](documentation\readme\wireframes\desktop-wireframes.png)
+
+[Mobile](documentation\readme\wireframes\mobile-wireframes.png)
+
+I originally planned to have a hero image on the index page but decided against it during implementation.
