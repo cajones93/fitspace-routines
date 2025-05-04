@@ -6,10 +6,10 @@
     --main-font: 'Montserrat', 'serif';
 
     /* Colours */
-    --secondary: #3E688C;
+    --secondary: #335775;
     --text-dark: #010440;
-    --primary: #C5D932;
-    --primary-light: #D3D936;
+    --primary: #D0E057;
+    --primary-light: #E6EA8B;
     --primary-dark: #575916;
 
     /* Utils */
@@ -324,4 +324,5 @@ a:hover{
     .search-filters{
         display: inline-flex;
     }
+
 }
