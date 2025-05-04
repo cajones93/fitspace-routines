@@ -207,7 +207,6 @@ a:hover{
     margin: var(--space-sm) 0;
     border: var(--border);
     max-width: 100%;
-    width: 21em;
 }
 
 .card-body{
@@ -223,6 +222,7 @@ a:hover{
     text-decoration: none;
     color: black;
     max-width: 100%;
+    width: 21rem;
 }
 
 .posts:hover{
