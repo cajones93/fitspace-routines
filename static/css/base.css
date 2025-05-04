@@ -268,9 +268,7 @@ a:hover{
 }
 
 .comment-section{
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
+    padding: var(--space-sm);
 }
 
 .workout-focus{
