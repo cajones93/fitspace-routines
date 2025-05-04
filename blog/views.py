@@ -35,7 +35,8 @@ class Posts(ListView):
             queryset = queryset.filter(
                 Q(title__icontains=query) |
                 Q(focus__icontains=query) |
-                Q(content__icontains=query)
+                Q(content__icontains=query) |
+                Q(author__username__icontains=query)
             )
         return queryset
 

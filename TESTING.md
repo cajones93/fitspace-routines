@@ -158,7 +158,6 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Edit/Delete comment                                   | User is able to see edit/delete buttons for their own comments.                     | Pass      |          |
 | **Post-detail Page (Logged-in, own post)**     |                                                       |                                                                                     |           |          |
 |                                                | Edit/Delete post                                      | User is able to see edit/delete buttons for their own posts                         | Pass      |          |
-
 | **Add Post page**                              |                                                       |                                                                                     |           |          |
 |                                                | Leave program name empty and try to Submit            | A required message popped up                                                        | Pass      |          |
 |                                                | Leave the description empty and try to Submit         | A required message popped up                                                        | Pass      |          |
