@@ -123,6 +123,9 @@ Full responsive testing was performed on mobile, tablet, and desktop following d
 | Login       | Desktop | ![screenshot](documentation\readme\responsiveness\desktop\login-desktop.png)       |
 | Login       | Tablet  | ![screenshot](documentation\readme\responsiveness\tablet\login-tablet.png)         |
 | Login       | Mobile  | ![screenshot](documentation\readme\responsiveness\mobile\login-mobile.png)         |
+| Sign up     | Desktop | ![screenshot](documentation\readme\responsiveness\desktop\sign-up-desktop.png)     |
+| Sign up     | Tablet  | ![screenshot](documentation\readme\responsiveness\tablet\sign-up-tablet.png)       |
+| Sign up     | Mobile  | ![screenshot](documentation\readme\responsiveness\mobile\sign-up-mobile.png)       |
 
 ### Defensive Programming
 
