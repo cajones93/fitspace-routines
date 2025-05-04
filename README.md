@@ -81,7 +81,7 @@ I originally planned to have a hero image on the index page but decided against 
 
 [Lucidchart](https://www.lucidchart.com/) was used to create the ERD. The data is structured in an relational database. The ERD including primary and foreign keys is shown below.
 
-![Entity Relationship Diagram (ERD)](documentation\ERD.png)
+![Entity Relationship Diagram (ERD)](documentation\readme\ERD.png)
 
 ### User stories
 
