@@ -199,23 +199,24 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Enter passwords that do not match                     | An error message is displayed                                                       | Pass      |          |
 |                                                | Enter a password containing only numbers              | An error message is displayed                                                       | Pass      |          |
 |                                                | Enter a passwords that is less than 8 characters      | An error message is displayed                                                       | Pass      |          |
+|                                                | Try to sign up with an existing user/email            | An error message is displayed                                                       | Pass      |          |
 |                                                | Enter valid information                               | Successful, user redirected to index page and logged in                             | Pass      |          |
 
 ### User Story Testing
 
 | User Story                                                                                                                                      | Screenshot                                                       |
 | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
-| As a new user, I can sign up with a username and password so that I can create an account.                                                      | ![screenshot](documentation/testing/user-story/signup.png)       |
-| As a returning user I can log in securely so that I can access my account and see authorised features.                                          | ![screenshot](documentation/testing/user-story/signin.png)       |
-| As a logged-in user I can create a blog post so that I can share my workout routine.                                                            | ![screenshot](documentation/testing/user-story/review.png)       |
-| As a user I can choose a workout focus for my blog post so that other users can filter by workout focus and find my post.                       | ![screenshot](documentation/testing/user-story/about-us.png)     |
-| As a user I can view all blog posts so that I can stay up to date and find new workout routines.                                                | ![screenshot](documentation/testing/user-story/forum-member.png) |
-| As a user I can view individual posts so that I can read the full blog entries.                                                                 | ![screenshot](documentation/testing/user-story/contactus.png)    |
-| As the post's author I can edit and delete the post so that I can update or remove my own content.                                              | ![screenshot](documentation/testing/user-story/forum-form.png)   |
-| As a logged-in user I can comment on a post so that I can join the discussion.                                                                  | ![screenshot](documentation/testing/user-story/about-edit.png)   |
-| As a user I can see a list of approved comments under each post so that I can read other people's opinions.                                     | ![screenshot](documentation/testing/user-story/post-edit.png)    |
-| As a user I can filter posts by workout focus so that find posts that are relevant to me.                                                       | ![screenshot](documentation/testing/user-story/about-edit.png)   |
-| As a user I can search for posts by keywords so that I can find specific topics or authors.                                                     | ![screenshot](documentation/testing/user-story/post-edit.png)    |
+| As a new user, I can sign up with a username and password so that I can create an account.                                                      | ![screenshot](documentation\readme\testing\user-stories\sign-up.png)       |
+| As a returning user I can log in securely so that I can access my account and see authorised features.                                          | ![screenshot](documentation\readme\testing\user-stories\log-in.png)       |
+| As a logged-in user I can create a blog post so that I can share my workout routine.                                                            | ![screenshot](documentation\readme\testing\user-stories\add-post.png)       |
+| As a user I can choose a workout focus for my blog post so that other users can filter by workout focus and find my post.                       | ![screenshot](documentation\readme\testing\user-stories\select-workout-focus.png)|
+| As a user I can view all blog posts so that I can stay up to date and find new workout routines.                                                | ![screenshot](documentation\readme\testing\user-stories\view-all-posts.png) |
+| As a user I can view individual posts so that I can read the full blog entries.                                                                 | ![screenshot](documentation\readme\testing\user-stories\view-full-post.png)    |
+| As the post's author I can edit and delete the post so that I can update or remove my own content.                                              | ![screenshot](documentation\readme\testing\user-stories\edit-delete-post.png)   |
+| As a logged-in user I can comment on a post so that I can join the discussion.                                                                  | ![screenshot](documentation\readme\testing\user-stories\post-comment.png)   |
+| As a user I can see a list of approved comments under each post so that I can read other people's opinions.                                     | ![screenshot](documentation\readme\testing\user-stories\see-comments.png)    |
+| As a user I can filter posts by workout focus so that find posts that are relevant to me.                                                       | ![screenshot](documentation\readme\testing\user-stories\filter-posts.png)   |
+| As a user I can search for posts by keywords so that I can find specific topics or authors.                                                     | ![screenshot](documentation\readme\testing\user-stories\search-posts.png)    |
 
 ### Solved Bugs
 
