@@ -145,11 +145,13 @@ User Stories and Acceptance Criteria helped me to ensure each feature met the de
 ### Edit Comment Page
 
 - When a user edits their own comment, they are taken to the Edit Comment Page. This page is a simple one-field page where their original comment is auto-populated. When a user submits their changes, the comments needs to be approved again. An alert is displayed once the submit button is clicked notifying the user after being redirected back to the post.
+
 ![Edit Comment Page](documentation\readme\features\edit-comment-page.png)
 
 ### Delete Comment Page
 
 - The Delete Comment Page is a simple confirmation page that displays the comment and asks the user if they want to delete it. An alert is displayed after being redirected back to the page to notify the user.
+
 ![Delete Comment Page](documentation\readme\features\delete-comment-page.png)
 
 ### Sign Up Page
