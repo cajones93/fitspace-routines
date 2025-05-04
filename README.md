@@ -17,7 +17,7 @@
   - [Colours Theme](#colours-theme)
   - [Typography](#typography)
   - [Wireframes](#wireframes)
-  - [Data Schema](#data-schema)
+  - [Entity Relationship Diagram](#entity-relationship-diagram)
   - [User stories](#user-stories)
   - [Agile Development](#agile-development)
 
@@ -77,9 +77,11 @@ I used [Shadows Into Light](https://fonts.google.com/specimen/Shadows+Into+Light
 
 I originally planned to have a hero image on the index page but decided against it during implementation.
 
-### Data Schema
+### Entity Relationship Diagram
 
-ADD LATER
+[Lucidchart](https://www.lucidchart.com/) was used to create the ERD. The data is structured in an relational database. The ERD including primary and foreign keys is shown below.
+
+![Entity Relationship Diagram (ERD)](documentation\ERD.png)
 
 ### User stories
 
