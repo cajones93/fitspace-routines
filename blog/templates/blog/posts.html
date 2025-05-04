@@ -22,13 +22,13 @@
         <a href="{% url 'post_detail' post.slug %}" class="posts" aria-label="Click to view {{post.title}}">
             <div class="card">
                 <div class="card-body">
-                    <h2 class="card-title">{{post.title}}</h5>
-                    <h3 class="card-subtitle mb-2 text-muted">{{post.author}}</h6>
+                    <h2 class="card-title">{{post.title}}</h2>
+                    <h3 class="card-subtitle mb-2 text-muted">{{post.author}}</h3>
                     <p class="card-text">{{post.excerpt|truncatechars:100}}</p>
                 </div>
                 <div class="card-footer">
-                    <h4 class="card-focus">{{post.get_focus_display}}</h5>
-                        <h5 class="card-created">Created on: {{post.created_on}}</h6>
+                    <h4 class="card-focus">{{post.get_focus_display}}</h4>
+                        <h5 class="card-created">Created on: {{post.created_on}}</h5>
                         </div>
             </div>
         </a>
