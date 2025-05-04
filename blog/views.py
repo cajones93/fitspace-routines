@@ -62,7 +62,6 @@ class AddPost(LoginRequiredMixin, CreateView):
     template_name = "blog/add_post.html"
     model = Post
     form_class = BlogPostForm
-    success_url = "/posts/posts/"
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -78,6 +77,9 @@ class AddPost(LoginRequiredMixin, CreateView):
         form.instance.slug = slug
         messages.success(self.request, 'Post created successfully!')
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('posts')
 
 
 class DeletePost(LoginRequiredMixin, DeleteView):
