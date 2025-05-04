@@ -3,7 +3,7 @@
 {% block title %}Post Detail - {{post.title}}{% endblock %}
 
 {% block content %}
-<div class="container">
+<div class="posts-container">
     <div class="post-info mt-3 p-1">
         <div class="post-detail">
             <h1 class="text-center">{{post.title}}</h1>
@@ -13,8 +13,8 @@
 
             {% if user.is_authenticated and post.author == user %}
                 <div class="text-center">
-                    <a href="{% url 'update_post' post.slug %}" class="btn btn-primary w-25 mb-2">Edit</a>
-                    <a href="{% url 'delete_post' post.slug %}" class="btn btn-warning w-25 mb-2">Delete</a>
+                    <a href="{% url 'update_post' post.slug %}" class="btn btn-primary">Edit</a>
+                    <a href="{% url 'delete_post' post.slug %}" class="btn btn-warning">Delete</a>
                 </div>
             {% endif %} 
         </div>
@@ -26,7 +26,7 @@
         </div>
     </div>
       <!-- Displaying Comments -->
-  <div class="row">
+  <div class="row comment-section">
     <div class="col-md-8 card mb-4  mt-3 ">
       <h3>Comments:</h3>
       <div class="card-body">
