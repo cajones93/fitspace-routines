@@ -190,3 +190,100 @@ User Stories and Acceptance Criteria helped me to ensure each feature met the de
 
 - Voting system. I wanted to include a voting system for users to up/down vote to help keep track of sentiment. This would be another way for users to easily share their opinions.
 - Profile pages. I would have liked to add a page where users would update their information and easily access their own posts. I wanted to add avatars for users to express themselves better.
+
+## Testing
+
+ADD LATER   
+
+
+## Deployment & Local Deployment
+
+### Deployment
+
+The Live deployed application can be found deployed on [Heroku](https://fitspace-routines-b98f037ee6fe.herokuapp.com/).
+
+### Database
+
+This project uses [Neon.tech](https://www.neon.tech) for the PostgreSQL Database. This was provided by Code Institute via a database-maker website for Code Institute Students.
+
+
+### Local Deployment
+
+This project can be cloned or forked in order to make a local copy on your own system.
+For either method, you will need to install any applicable packages found within the _requirements.txt_ file.
+
+- `pip install -r requirements.txt`.
+
+You will need to create a new file called `env.py` at the root-level,
+and include the same environment variables listed above from the Heroku deployment steps.
+
+Sample `env.py` file:
+
+```python
+import os
+
+os.environ.setdefault("DATABASE_URL", "user's own value")
+os.environ.setdefault("SECRET_KEY", "user's own value")
+
+# local environment only (do not include these in production/deployment!)
+os.environ.setdefault("DEBUG", "True")
+```
+
+Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
+
+- Start the Django app: `python manage.py runserver`
+- Stop the app once it's loaded: `CTRL+C` or `⌘+C` (Mac)
+- Make any necessary migrations: `python manage.py makemigrations`
+- Migrate the data to the database: `python manage.py migrate`
+- Create a superuser: `python manage.py createsuperuser`
+- Load fixtures (if applicable): `python manage.py loaddata file-name.json` (repeat for each file)
+- Everything should be ready now, so run the Django app again: `python manage.py runserver`
+
+### Heroku Deployment
+
+The application was deployed to Heroku. In order to deploy, the following steps were taken:
+
+1. If you have an account, login to Heroku. Otherwise create a new account.
+2. Once signed in, click the "New" button in the top right corner, below the header and choose "Create new app".
+3. Choose a unique name for the application and select your region. When done, click "Create app".
+4. This brings you to the "Deploy" tab. From here, click the "Settings" tab and scroll down to the "Config Vars" section and click on "Reveal Config Vars" and set your environment variables.
+
+| Key                     | Value                                                                |
+| ----------------------- | -------------------------------------------------------------------- |
+| `DATABASE_URL`          | user's own value                                                     |
+| `DISABLE_COLLECTSTATIC` | 1 (_this is temporary, and can be removed for the final deployment_) |
+| `SECRET_KEY`            | user's own value                                                     |
+
+Heroku needs two (and one optional) additional files in order to deploy:
+
+- requirements.txt
+- Procfile
+- .python-version
+
+You can install this project's **requirements** (where applicable) using:
+
+- `pip install -r requirements.txt`
+
+If you have your own packages that have been installed, then the requirements file needs updated using:
+
+- `pip freeze --local > requirements.txt`
+
+The **Procfile** can be created with the following command:
+
+- `echo web: gunicorn app_name.wsgi > Procfile`
+- _replace **app_name** with the name of your primary Django app name; the folder where settings.py is located_
+
+For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+
+Either:
+
+- Select **Automatic Deployment** from the Heroku app.
+
+Or:
+
+- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
+- Set the remote for Heroku: `heroku git:remote -a app_name` (replace _app_name_ with your app name)
+- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
+  - `git push heroku main`
+
+The project should now be connected and deployed to Heroku!
