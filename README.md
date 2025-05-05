@@ -14,7 +14,7 @@
 
 - [UX - User Experience](#ux)
 
-  - [Colours Theme](#colours-theme)
+  - [Colour Scheme](#colour-scheme)
   - [Typography](#typography)
   - [Wireframes](#wireframes)
   - [Entity Relationship Diagram](#entity-relationship-diagram)
@@ -71,9 +71,9 @@ I used [Shadows Into Light](https://fonts.google.com/specimen/Shadows+Into+Light
 
 ### Wireframes
 
-[Desktop](documentation\readme\wireframes\desktop-wireframes.png)
+![Desktop](documentation\readme\wireframes\desktop-wireframe.png)
 
-[Mobile](documentation\readme\wireframes\mobile-wireframes.png)
+![Mobile](documentation\readme\wireframes\mobile-wireframe.png)
 
 I originally planned to have a hero image on the index page but decided against it during implementation.
 
@@ -122,11 +122,11 @@ User Stories and Acceptance Criteria helped me to ensure each feature met the de
 
 ![Post Detail](documentation\readme\features\post-detail-page.png)
 
-### New Post Page
+### Add Post Page
 
-- A user can add a new post by navigating to the New Post Page. This page contains a form where the user inputs the workout title, selects the focus, enters a brief description, and the program details. The program details field can be edited using the controls displayed at the top of the field.
+- A user can add a new post by navigating to the Add Post Page. This page contains a form where the user inputs the workout title, selects the focus, enters a brief description, and the program details. The program details field can be edited using the controls displayed at the top of the field.
 
-![New Post](documentation\readme\features\add-post-page.png)
+![Add Post](documentation\readme\features\add-post-page.png)
 
 - If a user is not logged-in, they are redirected to the login page.
 
@@ -189,6 +189,13 @@ User Stories and Acceptance Criteria helped me to ensure each feature met the de
   The social media links are shown in the icon and when users click on them, they will open in a new tab which makes it easy for the users to keep connected via social media.
 
 ![The Footer](documentation\readme\features\footer-section.png)
+
+
+### Custom 404 Page
+
+- The Custom 404 Page is a simple page designed to guide the user back to the Index page. The user is automatically redirected to this page when they enter an invalid URL.
+
+![404 Page](documentation\readme\responsiveness\mobile\404-mobile.png)
 
 ### Features left to implement
 
