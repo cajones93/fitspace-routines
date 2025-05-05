@@ -21,6 +21,7 @@ Return to the [README.md](README.md) file.
 ### HTML
 
 The recommended [HTML W3C Validator](https://validator.w3.org) was used to validate all HTML files.
+The 404 page was tested by direct input because the validator received a 404 error.
 
 | Page           | Screenshot                                                                          | Notes           |
 | -------------- | ----------------------------------------------------------------------------------- | --------------- |
@@ -35,6 +36,7 @@ The recommended [HTML W3C Validator](https://validator.w3.org) was used to valid
 | Sign Up        | ![screenshot](documentation\readme\testing\html-validation\signup-html.png)         | Pass: No Errors |
 | Login          | ![screenshot](documentation\readme\testing\html-validation\login-html.png)          | Pass: No Errors |
 | Logout         | ![screenshot](documentation\readme\testing\html-validation\logout-html.png)         | Pass: No Errors |
+| 404            | ![screenshot](documentation\readme\testing\html-validation\404-html.png)            | Pass: No Errors |
 
 ### CSS
 
@@ -79,6 +81,10 @@ The only errors returned were 'line too long' errors which have been excluded fr
 ### Lighthouse
 
 All pages were checked with lighthouse to identify any issues. Each page was checked in mobile and desktop sizes.
+Add Post page 'Accessibility' is related to the Summernote field iFrame not having a title.
+404 page 'Best Practices' and 'SEO' are lower due to the 404 error.
+When trying to get lighthouse scores, I kept getting different values even when immediately running the test again. 
+
 
 | Page           | Size    | Screenshot                                                                                   |
 | -------------- | ------- | -------------------------------------------------------------------------------------------- |
@@ -86,6 +92,8 @@ All pages were checked with lighthouse to identify any issues. Each page was che
 | Index          | Mobile  | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-index-mobile.png)           |
 | Posts          | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-posts-desktop.png)          |
 | Posts          | Mobile  | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-posts-mobile.png)           |
+| Post Detail    | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-post-detail-desktop.png)    |
+| Post Detail    | Mobile  | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-post-detail-mobile.png)     |
 | Add Post       | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-add-post-desktop.png)       |
 | Add Post       | Mobile  | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-add-post-mobile.png)        |
 | Edit Post      | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-edit-post-desktop.png)      |
@@ -102,6 +110,8 @@ All pages were checked with lighthouse to identify any issues. Each page was che
 | Sign Up        | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-signup-mobile.png)          |
 | Logout         | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-logout-desktop.png)         |
 | Logout         | Mobile  | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-logout-mobile.png)          |
+| 404            | Desktop | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-404-desktop.png)            |
+| 404            | Mobile  | ![screenshot](documentation\readme\testing\lighthouse\lighthouse-404-mobile.png)             |
 
 ## MANUAL TESTING
 
@@ -126,6 +136,9 @@ Full responsive testing was performed on mobile, tablet, and desktop following d
 | Sign up     | Desktop | ![screenshot](documentation\readme\responsiveness\desktop\sign-up-desktop.png)     |
 | Sign up     | Tablet  | ![screenshot](documentation\readme\responsiveness\tablet\sign-up-tablet.png)       |
 | Sign up     | Mobile  | ![screenshot](documentation\readme\responsiveness\mobile\sign-up-mobile.png)       |
+| 404         | Desktop | ![screenshot](documentation\readme\responsiveness\desktop\404-desktop.png)         |
+| 404         | Tablet  | ![screenshot](documentation\readme\responsiveness\tablet\404-tablet.png)           |
+| 404         | Mobile  | ![screenshot](documentation\readme\responsiveness\mobile\404-mobile.png)           |
 
 ### Defensive Programming
 
@@ -206,6 +219,8 @@ Defensive programming was manually tested with the below user acceptance testing
 |                                                | Enter a passwords that is less than 8 characters    | An error message is displayed                                                       | Pass      |          |
 |                                                | Try to sign up with an existing user/email          | An error message is displayed                                                       | Pass      |          |
 |                                                | Enter valid information                             | Successful, user redirected to index page and logged in                             | Pass      |          |
+| **404 page**                                   |                                                     |                                                                                     |           |          |
+|                                                | Click Home button                                   | User is redirected to the Index page                                                | Pass      |          |
 
 ### User Story Testing
 
