@@ -21,7 +21,7 @@ class Posts(ListView):
     template_name = "blog/posts.html"
     model = Post
     context_object_name = "posts"
-    paginate_by = 6  # You might want to add pagination
+    paginate_by = 6
 
     def get_queryset(self, **kwargs):
         queryset = super().get_queryset().order_by('-created_on')

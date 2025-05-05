@@ -8,7 +8,7 @@ class BlogPostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ["title", "focus", "excerpt", "content"]
+        fields = ["title", "focus", "excerpt", "content", "status"]
 
         widgets = {
             'content': SummernoteWidget(),
@@ -19,6 +19,7 @@ class BlogPostForm(forms.ModelForm):
             "focus": "Workout Focus",
             "excerpt": "Brief Description",
             "content": "Program Details",
+            "status": "Status"
         }
 
 
