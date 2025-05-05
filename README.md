@@ -312,6 +312,7 @@ The project should now be connected and deployed to Heroku!
 - How to display choice values correctly [StackOverflow](https://stackoverflow.com/questions/42733788/django-change-text-color-based-on-value-html-js)
 - Accessing clean data [Django Documentation](https://docs.djangoproject.com/en/5.2/ref/forms/api/#accessing-clean-data)
 - Get_Context_Data [Django Documentation](https://docs.djangoproject.com/en/5.2/topics/class-based-views/generic-display/)
+- Bulk actions in Django, used to create custom bulk publish action [dev.to](https://dev.to/ahmed__elboshi/introduction-to-custom-actions-and-bulk-actions-in-django-4bgd)
 
 ### Content
 
