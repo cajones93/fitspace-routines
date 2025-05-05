@@ -38,6 +38,14 @@ class Posts(ListView):
                 Q(content__icontains=query) |
                 Q(author__username__icontains=query)
             )
+            
+        if self.request.user.is_authenticated:
+            queryset = queryset.filter(
+                Q(status=1) | Q(status=0, author=self.request.user)
+            )
+        else:
+            queryset = queryset.filter(status=1)
+        
         return queryset
 
 

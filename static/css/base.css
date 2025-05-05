@@ -48,6 +48,11 @@ main{
     color: rgb(172, 175, 175);
 }
 
+.faded-post {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
 /* Footer */
 footer {
     flex-shrink: 0;
