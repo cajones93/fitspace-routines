@@ -318,6 +318,16 @@ a:hover{
     --bs-gutter-x: 0;
 }
 
+.container-404{
+    width: 100%;
+    margin: var(--space-md) auto;
+    box-shadow: var(--small-box-shadow);
+    border-radius: 5px;
+    padding: var(--space-md);
+    background-color: white;
+    flex-direction: column;
+}
+
 /* Media Queries */
 
 @media screen and (min-width: 62.5em){
