@@ -15,4 +15,4 @@ class Index(ListView):
         if focus_filter and focus_filter != 'All':
             queryset = queryset.filter(focus=focus_filter)
         # Show latest 3 posts
-        return queryset[:3]
+        return queryset.filter(status=1)[:3]
